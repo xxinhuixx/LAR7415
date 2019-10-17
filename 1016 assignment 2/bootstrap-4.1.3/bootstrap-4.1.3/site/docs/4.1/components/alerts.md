@@ -1,4 +1,4 @@
----
+﻿---
 layout: docs
 title: Alerts
 description: Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
@@ -16,9 +16,9 @@ Alerts are available for any length of text, as well as an optional dismiss butt
   A simple {{ color.name }} alert—check it out!
 </div>{% endfor %}
 {% endcapture %}
-{% include example.html content=example %}
 
-{% include callout-warning-color-assistive-technologies.md %}
+
+
 
 ### Link color
 
@@ -30,7 +30,7 @@ Use the `.alert-link` utility class to quickly provide matching colored links wi
   A simple {{ color.name }} alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
 </div>{% endfor %}
 {% endcapture %}
-{% include example.html content=example %}
+
 
 ### Additional content
 

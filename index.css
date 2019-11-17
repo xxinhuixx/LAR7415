@@ -1,0 +1,105 @@
+/*
+ * Globals
+
+ /*custom.csss*/
+ /*import google fonts */
+@import url('https://fonts.googleapis.com/css?family=Halant:300,400,500,600,700|Lora|PT+Serif&display=swap');
+ @import "bootsrap-4.0.0/scss/bootstrap";
+
+ $heading-font-family: 'PT Serif', serif;
+ $font-family-base:'Lora', serif;
+ $font-family:'Halant', serif;
+
+
+ /* Links */
+ a,
+ a:focus,
+ a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn{
+  font-family: 'Lora', serif;
+ border-radius:0;
+ margin-top:2rem;
+}
+
+/*
+ * Base structure
+ */
+
+ html,
+ body {
+  background-size: cover;
+  background-position: bottom;
+  height: 100%;
+  background-color: #333;
+  color:#fff;
+}
+
+h1{  font-family: 'Lora', serif;}
+
+h3{
+  font-family: 'Lora', serif;
+}
+p{
+  font-family: 'PT Serif', serif;
+}
+
+.row{
+    height:10vw;
+  }
+
+.cover-heading{
+  margin-top: 0.05em;
+}
+
+.lead{
+  width: 50%;
+  display: block-flex;
+  margin:auto;
+  left:50%;
+  right:50%;
+  color:white;
+}
+
+
+
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Style the button used to pause/play the video */
+#myBtn {
+  position: fixed;
+  bottom:15px;
+  right: 20px;
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}

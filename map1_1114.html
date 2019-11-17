@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+  <title>Winneba Primer</title>
+
+  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/cover/"> -->
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="mappage.css" rel="stylesheet">
+
+  <!-- Mapbox JS/CSS -->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+
+  <!-- Link to JQuery library (used for modal) -->  
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+  <!-- Add Google Fonts support -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+</head>
+
+
+<body >
+  <div id="maincontainer" class="container-fluid">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <h3 class="masthead-brand" href="index.html">Winneba Storyteller</h3>
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" href="index.html" >Home</a>
+          <a class="nav-link" href="">Upload</a>
+          <a class="nav-link" href="">Trailer</a>
+          <a class="nav-link" href="">Chapter</a>
+        </nav>
+      </div>
+    </header>
+
+
+    <main role="main" id="map-parent" class="container-fluid">
+
+
+      <!-- introduction -->
+      <section id="introduction">
+        <h1>25600 Stories</h1>   
+        <!-- <h3 > of the life of people in Winneba </h3>     -->
+       <!--  <p>Many African cultures have a tradition of oral historian, which document history by story-telling. Here's a collective history map of people's everyday life in Winneba. </p> -->
+
+  <!-- Info window (populated by javascript code from the Mapbox map layers) -->
+        <div id='info-window'>
+          <div>
+            <div id='info-window-body'>
+              <p>Hover over the map to learn more about the communities in Winneba.</p>
+            </div>
+          </div>
+        </div>
+  <!-- Info window (populated by javascript code from the Mapbox map layers) -->
+        <div id='story-window'>
+          <div>
+            <div id='story-window-body'>
+              <h3>Listen</h3>
+              <p>Hover over red hearts to hear local people's stories.</p>
+            </div>
+          </div>
+        </div>
+
+       
+
+
+        <!-- modal button -->
+        <button id="about" class='button-default'><i class="fas fa-question-circle"></i>&nbsp;Source</button>
+   
+        <!-- next page -->
+          <a  class="btn btn-outline-light" role="button" aria-pressed="true" href="index.html">back</a>
+<a  class="btn btn-outline-light" role="button" aria-pressed="true" >next</a>
+
+       </section>
+
+      
+        <!-- Mapbox -->   
+        <div id="map">
+        </div>
+         
+
+        <div id="map-sidebar">
+           <!-- Layers control (populated by javascript code) -->
+        <div id='layers-control'>
+          <p>Show/Hide Layers:</p>
+        </div>
+
+      <!-- Map legend (populated by javascript code) -->
+            <div id='legend'><p>Legend</p></div>
+            <div class='row'></div>
+        </div>
+
+
+
+      </main>
+
+      <!-- A modal, hidden by default in our css, which provides info about this project when shown -->
+      <div class='modal'>
+
+        <h3 class='modal-title'>Data Source</h3>
+
+        <div class='modal-body'><p>          
+Poppulation density data: Effutu census 2000 <br> Facility data: field trip, Joe Baami, Guoping Huang, Nancy Takahashi
+
+
+        </p></div>
+
+        <button class='close-button'>&times;</button>  <!-- A special "x" character (the multiply sign) used in close buttons -->  
+      </div>
+      <div id="screen"></div> <!-- Black overlay behind the modal -->
+
+
+         </div>
+
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="bootstrap.min.js.download"></script>
+
+      <!-- my custom js -->
+      <script src="map1.js"></script>
+
+    </body></html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="https://getbootstrap.com/docs/4.1/assets/img/favicons/favicon.ico">
+
+  <title>Winneba Primer</title>
+
+  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/cover/"> -->
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="mappage.css" rel="stylesheet">
+
+  <!-- Mapbox JS/CSS -->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+
+  <!-- Link to JQuery library (used for modal) -->  
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+  <!-- Add Google Fonts support -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+</head>
+
+
+<body >
+  <div id="maincontainer" class="container-fluid">
+    <header class="masthead mb-auto">
+
+     <nav class="navbar navbar-expand-md navbar-dark  fixed-top">
+      <a class="navbar-brand" href="index.html">Winneba Primer</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="">Video</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chapters</a>
+              <div class="dropdown-menu" href="1115map.html" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="">People In Winneba</a>
+                <a class="dropdown-item" href="#">Individual Stories</a>
+                <a class="dropdown-item" href="">Waste and Water</a>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+
+    </header>
+
+    <main role="main" id="map-parent" class="container-fluid">
+
+
+      <!-- introduction -->
+      <section id="introduction">
+        <h1>People In Winneba</h1>
+        <div class="row"></div>     
+        <h3 >Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua. </h3>    
+
+        <!-- Info window (populated by javascript code from the Mapbox map layers) -->
+        <div id='info-window'>
+          <div>
+            <div id='info-window-body'>
+              <p>Hover over the map to learn more about it.</p>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Layers control (populated by javascript code) -->
+        <div id='layers-control'>
+          <p>Show/Hide Layers:</p>
+        </div>
+
+        <!-- modal button -->
+        <button id="about" class='button-default'><i class="fas fa-question-circle"></i>&nbsp;Source</button>
+
+        <!-- next page -->
+
+          <a  class="btn btn-outline-light" role="button" aria-pressed="true" href="waste_1110.html">next chapter: individual stories</a>
+
+       </section>
+
+        <!-- Mapbox -->   
+        <div id="map">
+        </div>
+
+
+
+
+
+      </main>
+
+      <!-- A modal, hidden by default in our css, which provides info about this project when shown -->
+      <div class='modal'>
+
+        <h3 class='modal-title'>Data Source</h3>
+
+        <div class='modal-body'><p>          
+Poppulation density data: Effutu census 2000 <br> Facility data: Joe Baami, Guoping Huang, Nancy Takahashi
+
+
+        </p></div>
+
+        <button class='close-button'>&times;</button>  <!-- A special "x" character (the multiply sign) used in close buttons -->  
+      </div>
+      <div id="screen"></div> <!-- Black overlay behind the modal -->
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <!-- my custom js -->
+      <script src="map1.js"></script>
+
+    </body></html>

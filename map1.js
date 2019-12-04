@@ -1,10 +1,10 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoieGM1dGMiLCJhIjoiY2p2MWJnOXk3MDBoNDRldWxydDNnb3A3biJ9.d-lZSD7x1gJEXWHubXMSiA';
 var map = new mapboxgl.Map({
 	container: 'map',
-	center: [-0.630182, 5.345082],
+	center: [-0.636296, 5.338964],
 	zoom:14.20,
-	pitch:60,
-	bearing:-13.65,
+	pitch:0,
+	bearing:-7.84,
 	style: 'mapbox://styles/xc5tc/ck322d1o00fch1cpi2ymzp6ny'
 });
 
@@ -27,18 +27,14 @@ var map = new mapboxgl.Map({
     var layers = [ // an array of the possible values you want to show in your legend
         'school', // Civic Spaces.png
         'hospital', // Community Park.png
-        'church',
-        'documented story',
-        'forthcoming story'// Neighborhood Park.png
+        'church'// Neighborhood Park.png
         
     ];
 
     var colors = [ // an array of the color values for each legend item
         '#ff8e6b',
         '#fead81',
-        '#ff5724',
-        '#d60b52',
-        '#000000'
+        '#ff5724'
     ];
 
     // for loop to create individual legend items
@@ -82,23 +78,66 @@ var map = new mapboxgl.Map({
 // story-window
 
 
-    map.on('mousemove', function(e) {   // Event listener to do some code when the mouse moves, see https://www.mapbox.com/mapbox-gl-js/api/#events. 
+    // map.on('mousemove', function(e) {   // Event listener to do some code when the mouse moves, see https://www.mapbox.com/mapbox-gl-js/api/#events. 
 
-        var people = map.queryRenderedFeatures(e.point, {    
-            layers: ['people_icon']    // replace 'cville-parks' with the name of the layer you want to query (from your Mapbox Studio map, the name in the layers panel). For more info on queryRenderedFeatures, see the example at https://www.mapbox.com/mapbox-gl-js/example/queryrenderedfeatures/. Documentation at https://www.mapbox.com/mapbox-gl-js/api/#map#queryrenderedfeatures.
-        });
+    //     var people = map.queryRenderedFeatures(e.point, {    
+    //         layers: ['people_icon']    // replace 'cville-parks' with the name of the layer you want to query (from your Mapbox Studio map, the name in the layers panel). For more info on queryRenderedFeatures, see the example at https://www.mapbox.com/mapbox-gl-js/example/queryrenderedfeatures/. Documentation at https://www.mapbox.com/mapbox-gl-js/api/#map#queryrenderedfeatures.
+    //     });
               
-        if (people.length > 0) {   // if statement to make sure the following code is only added to the info window if the mouse moves over a state
+    //     if (people.length > 0) {   // if statement to make sure the following code is only added to the info window if the mouse moves over a state
 
-            $('#story-window-body').html('<h3>' +people[0].properties.name + '</h3><img src="' + people[0].properties.name + '.png" height="120px"><p>' + people[0].properties.name + ' lives in ' + people[0].properties.site + '.</p><p>' + people[0].properties.story + '</p><p>-Living condintion in ' + people[0].properties.site + ':</p><img src="' + people[0].properties.site + '.png" height="120px">');
+    //         $('#story-window-body').html('<h3>' +people[0].properties.name + '</h3><img src="file/' + people[0].properties.name + '.png" height="120px"><p>' + people[0].properties.name + ' lives in ' + people[0].properties.site + '.</p><p>' + people[0].properties.story + '</p><p>-Living condintion in ' + people[0].properties.site + ':</p><img src="file/' + people[0].properties.site + '.png" height="120px">');
 
-        } else {    // what shows up in the info window if you are NOT hovering over a park
+    //     } else {    // what shows up in the info window if you are NOT hovering over a park
 
-            $('#story-window-body').html('<h3>Listen</h3><p>Hover over red hearts to hear indivudual stories.</p>');
+    //         $('#story-window-body').html('<h3>Listen</h3><p>Hover over red hearts to hear indivudual stories.</p>');
             
-        }
+    //     }
 
+    // });
+
+    // -------------------------------------------------------- 
+// 5. Popups
+// See tutorial at https://docs.mapbox.com/help/tutorials/add-points-pt-3/
+// See example of popups on click at https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/ 
+// See example of popups on hover at https://docs.mapbox.com/mapbox-gl-js/example/popup-on-hover/
+
+    // Create a popup on click 
+    map.on('click', function(e) {   // Event listener to do some code when user clicks on the map
+
+      var people = map.queryRenderedFeatures(e.point, {  // Query the map at the clicked point. See https://www.mapbox.com/mapbox-gl-js/example/queryrenderedfeatures/ for an example on how queryRenderedFeatures works and https://www.mapbox.com/mapbox-gl-js/api/#map#queryrenderedfeatures for documentation
+        layers: ['people_icon']    // replace this with the name of the layer from the Mapbox Studio layers panel
     });
+
+      // if the layer is empty, this if statement will exit the function (no popups created) -- this is a failsafe to avoid non-functioning popups
+      if (people.length == 0) {
+        return;
+    }
+
+    // Initiate the popup
+    var popup = new mapboxgl.Popup({ 
+        closeButton: true, // If true, a close button will appear in the top right corner of the popup. Default = true
+        closeOnClick: true, // If true, the popup will automatically close if the user clicks anywhere on the map. Default = true
+        anchor: 'bottom', // The popup's location relative to the feature. Options are 'top', 'bottom', 'left', 'right', 'top-left', 'top-right', 'bottom-left' and 'bottom-right'. If not set, the popup's location will be set dynamically to make sure it is always visible in the map container.
+        offset: [0, -15] // A pixel offset from the centerpoint of the feature. Can be a single number, an [x,y] coordinate, or an object of [x,y] coordinates specifying an offset for each of the different anchor options (e.g. 'top' and 'bottom'). Negative numbers indicate left and up.
+    });
+
+      // Set the popup location based on each feature
+      popup.setLngLat(people[0].geometry.coordinates);
+
+      // Set the contents of the popup window
+      popup.setHTML( '<h3>'+people[0].properties.name +'</h3><img src="file/'+ people[0].properties.name +'.png" height="120px"><p>'+ people[0].properties.story +'</p> <p>Listen to ' + people[0].properties.name + ':</p><audio controls id="audio"><source src="file/' +people[0].properties.name+ '.mp3"></audio>'
+       );
+            // stops[0].properties.stop_id will become the title of the popup (<h3> element)
+            // stops[0].properties.stop_name will become the body of the popup
+
+
+        // popup.setHTML('<p>' + stops[0].properties.stop_name + '</p>')
+        
+
+      // Add the popup to the map 
+      popup.addTo(map);  // replace "map" with the name of the variable in line 4, if different
+  })
 
 
 // 6. Show/hide layers
@@ -109,7 +148,7 @@ var map = new mapboxgl.Map({
         // [layerMachineName, layerDisplayName]
         // layerMachineName is the layer name as written in your Mapbox Studio map layers panel
         // layerDisplayName is the way you want the layer's name to appear in the layers control on the website
-        ['census_density', 'population density'],      
+              
          ['census_density 2d','census block'],                // layers[0]
                                       // layers[1][1] = 'Parks'
         ['facility dot', 'facility'],     

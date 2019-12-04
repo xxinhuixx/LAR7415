@@ -62,6 +62,7 @@ h1{  font-family: 'Lora', serif;}
 
 h3{
   font-family: 'Lora', serif;
+  padding-top: 15px;
 }
 p{
   font-family: 'PT Serif', serif;
@@ -87,7 +88,6 @@ p{
 
 .lead{
   margin:auto;
-  padding:0;
   width:50%;
   left:50%;
   right:50%;

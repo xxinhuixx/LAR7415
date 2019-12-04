@@ -5,7 +5,7 @@ var map = new mapboxgl.Map({
 	zoom:14.20,
 	pitch:0,
 	bearing:-7.80,
-	style: 'mapbox://styles/xc5tc/ck322d1o00fch1cpi2ymzp6ny'
+	style: 'mapbox://styles/xc5tc/ck3qtq2980s281cqsxr7t1ap5'
 });
 
 // A modal window is an element that sits on top of an application's main window. It can be opened and closed without reloading the page
